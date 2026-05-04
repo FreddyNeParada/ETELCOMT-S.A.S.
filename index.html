@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ETELCOMT | Empresa de Telecomunicaciones de Tibú</title>
+  <meta name="description" content="ETELCOMT – Conectividad de fibra óptica y radioenlace en Tibú, Norte de Santander. Internet de alta velocidad para hogares y empresas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- LA NAVEGACION DE LA INTERFAZ ES AQUÍ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <!-- AQUÍ AGREGUÉ EL LOGO EN PNG -->
+          <img src="Logo_de_ETELCOMT_S.A.S.-removebg-preview.png" alt="Logo ETELCOMT" class="logo-img" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">ETELCOMT S.A.S</span>
+          <span class="logo-sub">Telecomunicaciones</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#cobertura">Cobertura</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="btn-nav">Contáctanos</a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+      <canvas id="networkCanvas"></canvas>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Conectando el futuro de Tibú. La conexion que te hace avanzar.
+      </div>
+      <h1>Conectividad <span class="gradient-text">sin límites</span><br/>para tu hogar y empresa</h1>
+      <p>Fibra óptica y radioenlace. Velocidad, estabilidad y soporte 8/7 en el corazón de la región del Catatumbo.</p>
+      <div class="hero-buttons">
+        <a href="#planes" class="btn-primary">Ver Planes <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+        <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="500">0</span><span>+</span><p>Clientes</p></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num" data-target="99">0</span><span>%</span><p>Uptime</p></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num" data-target="5">0</span><span>+</span><p>Años exp.</p></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="signal-tower">
+        <svg viewBox="0 0 220 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tower structure -->
+          <line x1="110" y1="40" x2="80" y2="280" stroke="#94a3b8" stroke-width="3"/>
+          <line x1="110" y1="40" x2="140" y2="280" stroke="#94a3b8" stroke-width="3"/>
+          <line x1="85" y1="120" x2="135" y2="120" stroke="#94a3b8" stroke-width="2.5"/>
+          <line x1="82" y1="180" x2="138" y2="180" stroke="#94a3b8" stroke-width="2.5"/>
+          <line x1="78" y1="240" x2="142" y2="240" stroke="#94a3b8" stroke-width="2.5"/>
+          <!-- Cross supports -->
+          <line x1="85" y1="120" x2="110" y2="180" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="135" y1="120" x2="110" y2="180" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="82" y1="180" x2="110" y2="240" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="138" y1="180" x2="110" y2="240" stroke="#64748b" stroke-width="1.5"/>
+          <!-- Antenna top -->
+          <line x1="110" y1="10" x2="110" y2="50" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="110" cy="10" r="5" fill="#38bdf8"/>
+          <!-- Signal waves -->
+          <path class="wave wave1" d="M70 50 Q110 30 150 50" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0"/>
+          <path class="wave wave2" d="M55 40 Q110 10 165 40" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round" opacity="0"/>
+          <path class="wave wave3" d="M40 30 Q110 -10 180 30" stroke="#93c5fd" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0"/>
+          <!-- Base -->
+          <rect x="78" y="278" width="64" height="8" rx="4" fill="#475569"/>
+          <rect x="60" y="286" width="100" height="6" rx="3" fill="#334155"/>
+        </svg>
+      </div>
+      <div class="fiber-lines">
+        <div class="fiber f1"></div>
+        <div class="fiber f2"></div>
+        <div class="fiber f3"></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Lo que ofrecemos</span>
+        <h2>Nuestros <span class="gradient-text">Servicios</span></h2>
+        <p>Soluciones de conectividad adaptadas a cada necesidad, con tecnología de vanguardia y soporte personalizado.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card featured reveal">
+          <div class="card-glow"></div>
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="url(#sg1)" stroke-width="1.5"/>
+              <path d="M8 20 Q14 8 20 20 Q26 32 32 20" stroke="url(#sg1)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="8" cy="20" r="3" fill="#38bdf8"/>
+              <circle cx="32" cy="20" r="3" fill="#2563eb"/>
+              <defs><linearGradient id="sg1" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>
+            </svg>
+          </div>
+          <h3>Fibra Óptica</h3>
+          <p>Conexión ultrarrápida y estable mediante tecnología de fibra óptica. Velocidades simétricas de hasta 300 Mbps para el máximo rendimiento.</p>
+          <ul class="service-features">
+            <li>✓ Velocidad simétrica (subida = bajada)</li>
+            <li>✓ Latencia ultra baja &lt;5ms</li>
+            <li>✓ Sin interferencias</li>
+            <li>✓ Instalación profesional incluida</li>
+          </ul>
+          <span class="service-badge">⚡ Más popular</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="15" y="22" width="10" height="12" rx="2" stroke="#60a5fa" stroke-width="2"/>
+              <path d="M10 18 Q20 8 30 18" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M6 13 Q20 1 34 13" stroke="#93c5fd" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <line x1="20" y1="8" x2="20" y2="22" stroke="#38bdf8" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Radioenlace</h3>
+          <p>Conectividad inalámbrica de punto a punto ideal para zonas donde la fibra no llega. Alta disponibilidad en áreas rurales y remotas.</p>
+          <ul class="service-features">
+            <li>✓ Cobertura en zonas rurales</li>
+            <li>✓ Instalación rápida</li>
+            <li>✓ Alta disponibilidad</li>
+            <li>✓ Enlace seguro y encriptado</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="5" y="8" width="30" height="20" rx="3" stroke="#60a5fa" stroke-width="2"/>
+              <rect x="8" y="11" width="24" height="14" rx="1.5" fill="rgba(56,189,248,0.15)"/>
+              <line x1="15" y1="28" x2="25" y2="28" stroke="#60a5fa" stroke-width="2"/>
+              <rect x="12" y="30" width="16" height="4" rx="2" stroke="#60a5fa" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Internet Empresarial</h3>
+          <p>Planes dedicados para empresas con IPs fijas, SLA garantizado y soporte técnico prioritario para mantener tu empresa siempre conectada.</p>
+          <ul class="service-features">
+            <li>✓ IP fija dedicada</li>
+            <li>✓ SLA 99.9% garantizado</li>
+            <li>✓ Soporte prioritario 12/7</li>
+            <li>✓ Ancho de banda garantizado</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="8" stroke="#60a5fa" stroke-width="2"/>
+              <path d="M20 5v4M20 31v4M5 20h4M31 20h4" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9.4 9.4l2.8 2.8M27.8 27.8l2.8 2.8M9.4 30.6l2.8-2.8M27.8 12.2l2.8-2.8" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Soporte Técnico 8/7</h3>
+          <p>Equipo de técnicos especializados disponible las 8 horas del día. Atención remota y presencial para resolver cualquier incidencia.</p>
+          <ul class="service-features">
+            <li>✓ Respuesta en menos de 2 horas</li>
+            <li>✓ Atención remota y presencial</li>
+            <li>✓ Monitoreo proactivo</li>
+            <li>✓ Técnicos certificados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- NOSOTROS-HISTORIA O OBJETIVOS DE LA EMPRESA -->
+  <section id="nosotros" class="section about-section">
+    <div class="container about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card-main">
+          <div class="about-icon-big">
+            <!--  Logo grande en la sección Nosotros -->
+            <img src="Logo_de_ETELCOMT_S.A.S.-removebg-preview.png" alt="Logo ETELCOMT" class="about-logo-img" />
+          </div>
+          <h3>ETELCOMT</h3>
+          <p>Empresa de Telecomunicaciones de Tibú</p>
+        </div>
+        <div class="about-badges-float">
+          <div class="float-badge b1">🏆 Empresa local</div>
+          <div class="float-badge b2">🚀 En constante crecimiento</div>
+          <div class="float-badge b3">📡 Tecnología de punta</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="section-tag">Quiénes somos</span>
+        <h2>La empresa que <span class="gradient-text">conecta</span> a Tibú</h2>
+        <p class="about-lead">Somos ETELCOMT, una microempresa de telecomunicaciones nacida en el corazón de Tibú, Norte de Santander. Estamos comprometidos con llevar conectividad de calidad a cada rincón de nuestra región.</p>
+        <p>Iniciamos con el sueño de romper la brecha digital en el Catatumbo, ofreciendo servicios de fibra óptica y radioenlace con los más altos estándares de calidad. Hoy somos una empresa en auge, creciendo de la mano de nuestra comunidad.</p>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">🎯</div>
+            <div>
+              <strong>Misión</strong>
+              <p>Conectar hogares y empresas con tecnología de vanguardia.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🔭</div>
+            <div>
+              <strong>Visión</strong>
+              <p>Ser la empresa líder de telecomunicaciones en el Catatumbo para 2030, con cobertura total en la región.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">💎</div>
+            <div>
+              <strong>Valores</strong>
+              <p>Transparencia, compromiso, innovación y servicio al cliente como pilares de nuestra cultura empresarial.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- COBERTURA -->
+  <section id="cobertura" class="section coverage-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dónde estamos</span>
+        <h2>Área de <span class="gradient-text">Cobertura</span></h2>
+        <p>Cubriendo Tibú y sus alrededores con tecnología de fibra óptica y radioenlace.</p>
+      </div>
+      <div class="coverage-grid">
+        <div class="coverage-map reveal">
+          <div class="map-container">
+            <!-- Mapa interactivo Leaflet -->
+            <div id="realMap"></div>
+            
+            <div class="map-legend">
+              <div class="legend-item"><span class="legend-dot main"></span> Fibra Óptica (90%)</div>
+              <div class="legend-item"><span class="legend-dot sec" style="background:#f97316; box-shadow: 0 0 6px #f97316;"></span> Radioenlace (10%)</div>
+              <div class="legend-item"><span class="legend-dot area"></span> Zona de cobertura</div>
+            </div>
+          </div>
+        </div>
+        <div class="coverage-info reveal">
+          <h3>Zonas que cubrimos</h3>
+          <div class="zone-list">
+            <div class="zone-item active">
+              <div class="zone-status on"></div>
+              <div>
+                <strong>Tibú – Zona Urbana</strong>
+                <p>Fibra óptica disponible en toda la zona urbana</p>
+              </div>
+            </div>
+            <div class="zone-item active">
+              <div class="zone-status on"></div>
+              <div>
+                <strong>Barrio Primero de Mayo</strong>
+                <p>Cobertura completa con fibra óptica</p>
+              </div>
+            </div>
+            <div class="zone-item active">
+              <div class="zone-status on"></div>
+              <div>
+                <strong>El Progreso</strong>
+                <p>Fibra óptica y radioenlace disponibles</p>
+              </div>
+            </div>
+            <div class="zone-item expanding">
+              <div class="zone-status exp"></div>
+              <div>
+                <strong>Vía Sardinata</strong>
+                <p>Radioenlace — en expansión hacia nuevas veredas</p>
+              </div>
+            </div>
+            <div class="zone-item expanding">
+              <div class="zone-status exp"></div>
+              <div>
+                <strong>Zona Rural Catatumbo</strong>
+                <p>Expansión activa con radioenlace de largo alcance</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contacto" class="btn-primary" style="margin-top:1.5rem; display:inline-flex">Verificar mi cobertura</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PLANES -->
+  <section id="planes" class="section plans-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Precios</span>
+        <h2>Planes <span class="gradient-text">para todos</span></h2>
+        <p>Elige el plan que mejor se adapta a tus necesidades. Sin letra pequeña, sin costos ocultos.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card reveal">
+          <div class="plan-header">
+            <span class="plan-icon">🏠</span>
+            <h3>Básico</h3>
+            <p>Ideal para el hogar</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">80.000</span>
+            <span class="period">/mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 80 Mbps de velocidad garantizados</li>
+            <li>✓ Fibra óptica </li>
+            <li>✓ Sin límite de datos</li>
+            <li>✓ Soporte estándar</li>
+            <li>✓ 1 router_ONU incluido</li>
+            <li class="disabled">✗ IP fija</li>
+          </ul>
+          <a href="#contacto" class="btn-plan">Contratar</a>
+        </div>
+        <div class="plan-card featured reveal">
+          <div class="popular-tag">⭐ Más popular</div>
+          <div class="plan-header">
+            <span class="plan-icon">⚡</span>
+            <h3>Pro</h3>
+            <p>Hogar y teletrabajo</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">100.000</span>
+            <span class="period">/mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 100 Mbps de velocidad garantizados</li>
+            <li>✓ Fibra óptica</li>
+            <li>✓ Sin límite de datos</li>
+            <li>✓ Soporte prioritario</li>
+            <li>✓ 1 router_ONU WiFi 6</li>
+            <li>✓ IP fija </li>
+          </ul>
+          <a href="#contacto" class="btn-plan featured">Contratar</a>
+        </div>
+        <div class="plans-grid">
+        <div class="plan-card reveal">
+          <div class="plan-header">
+            <span class="plan-icon">👾</span>
+            <h3>Productividad y gaming</h3>
+            <p>Ideal para gamers y tareas pesadas</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">120.000</span>
+            <span class="period">/mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 200 Mbps de velocidad garantizados</li>
+            <li>✓ Fibra óptica </li>
+            <li>✓ Sin límite de datos</li>
+            <li>✓ Soporte prioritario</li>
+            <li>✓ 1 router_ONU WiFi 6 incluido</li>
+            <li>✓ IP fija </li>
+          </ul>
+          <a href="#contacto" class="btn-plan">Contratar</a>
+        </div>
+        <div class="plan-card reveal">
+          <div class="plan-header">
+            <span class="plan-icon">🏢</span>
+            <h3>Empresarial</h3>
+            <p>Para negocios y MIPYME</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">150.000 + IVA</span>
+            <span class="period">/mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 300 Mbps simétrico</li>
+            <li>✓ Fibra óptica dedicada</li>
+            <li>✓ Sin límite de datos</li>
+            <li>✓ Soporte 12/7 prioritario</li>
+            <li>✓ IP fija incluida</li>
+          </ul>
+          <a href="#contacto" class="btn-plan">Contratar</a>
+        </div>
+      </div>
+      <p class="plans-note">* Precios en pesos colombianos. Instalación sin costo adicional en zona urbana de Tibú.</p>
+    </div>
+  </section>
+  <!-- POR QUÉ NOSOTROS -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">¿Por qué elegirnos?</span>
+        <h2>La diferencia <span class="gradient-text">ETELCOMT</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal"><div class="why-icon">⚡</div><h4>Alta velocidad</h4><p>Tecnología de fibra óptica con velocidades simétricas para la mejor experiencia.</p></div>
+        <div class="why-card reveal"><div class="why-icon">🛡️</div><h4>Conexión estable</h4><p>Infraestructura robusta con mínimo tiempo de inactividad y monitoreo constante.</p></div>
+        <div class="why-card reveal"><div class="why-icon">🤝</div><h4>Empresa local</h4><p>Somos de Tibú, conocemos la región y estamos comprometidos con nuestra comunidad.</p></div>
+        <div class="why-card reveal"><div class="why-icon">💬</div><h4>Atención personal</h4><p>Soporte directo y personalizado, no un call center. Hablamos contigo directamente.</p></div>
+        <div class="why-card reveal"><div class="why-icon">🔧</div><h4>Instalación rápida</h4><p>Instalación profesional en menos de 72 horas en zona urbana.</p></div>
+        <div class="why-card reveal"><div class="why-icon">📈</div><h4>En constante mejora</h4><p>Empresa en crecimiento que reinvierte en infraestructura para darte siempre más.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACTO -->
+  <section id="contacto" class="section contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Hablemos</span>
+        <h2>¿Listo para <span class="gradient-text">conectarte</span>?</h2>
+        <p>Contáctanos y un asesor te atenderá a la brevedad posible.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Información de contacto</h3>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Dirección</strong>
+                <p>Tibú, Norte de Santander, Colombia</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Teléfono / WhatsApp</strong>
+                <p><a href="tel:+573000000000">+57 300 000 0000</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <strong>Correo electrónico</strong>
+                <p><a href="mailto:info@etelcomt.com">info@etelcomt.com</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <strong>Horario de atención</strong>
+                <p>Lunes a Viernes: 8am – 6pm<br/>Sábado: 8am – 12pm</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://wa.me/573000000000" target="_blank" class="whatsapp-btn" id="whatsappBtn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" />
+          </div>
+          <div class="form-group">
+            <label for="barrio">Barrio / Zona</label>
+            <input type="text" id="barrio" name="barrio" placeholder="¿Dónde estás ubicado?" required />
+          </div>
+          <div class="form-group">
+            <label for="interes">¿Qué te interesa?</label>
+            <select id="interes" name="interes">
+              <option value="">Selecciona un servicio</option>
+              <option value="fibra">Fibra Óptica Residencial</option>
+              <option value="radio">Radioenlace</option>
+              <option value="empresarial">Internet Empresarial</option>
+              <option value="info">Solo información</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Tienes alguna pregunta adicional?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center" id="submitBtn">
+            Enviar solicitud
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✅ ¡Solicitud enviada! Te contactaremos pronto.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">
+              <!-- 🔴 Logo en el footer -->
+              <img src="Logo_de_ETELCOMT_S.A.S.-removebg-preview.png" alt="Logo ETELCOMT" class="logo-img" />
+            </div>
+            <div class="logo-text"><span class="logo-main">ETELCOMT</span></div>
+          </div>
+          <p>Empresa de Telecomunicaciones de Tibú. Conectando el Catatumbo con tecnología de fibra óptica y radioenlace.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Fibra Óptica</a></li>
+            <li><a href="#servicios">Radioenlace</a></li>
+            <li><a href="#servicios">Internet Empresarial</a></li>
+            <li><a href="#servicios">Soporte Técnico</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#cobertura">Cobertura</a></li>
+            <li><a href="#planes">Planes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p>📍 Tibú, N. de Santander</p>
+          <p>📞 <a href="tel:+573000000000">+57 300 000 0000</a></p>
+          <p>📧 <a href="mailto:info@etelcomt.com">info@etelcomt.com</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 ETELCOMT – Empresa de Telecomunicaciones de Tibú. Todos los derechos reservados.</p>
+        <p>Hecho con ❤️ en Tibú, Norte de Santander, Colombia 🇨🇴</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
